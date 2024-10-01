@@ -1,0 +1,116 @@
+ Exercício 1
+
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        
+        Scanner entrada = new Scanner(System.in);
+        int[] matriculas = new int[100];
+        double[] notas = new double[100];
+        
+        for (int i = 0; i < 100; i++) {
+            System.out.print("Insira a sua matrícula (somente números): ");
+            matriculas[i] = entrada.nextInt();
+            System.out.println();
+            
+            System.out.print("Insira a sua nota: ");
+            notas[i] = entrada.nextDouble();
+            System.out.println();
+        }
+        
+        double maiorNota = -1, segundaMaiorNota = -1;
+        int matriculaMaiorNota = -1, matriculaSegundaMaiorNota = -1;
+        
+        for (int i = 0; i < 100; i++) {
+            if (notas[i] > maiorNota) {
+                segundaMaiorNota = maiorNota;
+                matriculaSegundaMaiorNota = matriculaMaiorNota;
+                maiorNota = notas[i];
+                matriculaMaiorNota = matriculas[i];
+            } else if (notas[i] > segundaMaiorNota) {
+                segundaMaiorNota = notas[i];
+                matriculaSegundaMaiorNota = matriculas[i];
+            }
+        }
+        
+        System.out.println("A maior nota é " + maiorNota + ", do aluno com matrícula " + matriculaMaiorNota);
+        System.out.println("A segunda maior nota é " + segundaMaiorNota + ", do aluno com matrícula " + matriculaSegundaMaiorNota);
+        
+        }
+    }
+
+ Exercício 2
+
+import java.util.Scanner;
+class dois {
+  public static void main(String[] args) {
+    
+    Scanner entrada = new Scanner(System.in);
+        int n;
+        int[] termos;
+
+        System.out.print("Insira o valor de n: ");
+        n = entrada.nextInt();
+        termos = new int[n];
+        
+        for (int index = 0, num = 1; index < n; num++) {
+            termos[index] = num;
+            index++;
+            if (index < n) {
+                termos[index] = num;
+                index++;
+            }
+        }
+        
+        System.out.print("Os primeiros " + n + " termos da série são: ");
+        for (int i = 0; i < n; i++) {
+            System.out.print(termos[i] + " ");
+        }
+        
+    }
+}
+
+
+Exercício 3
+
+
+import java.util.Scanner;
+class tres {
+  public static void main(String[] args) {
+    
+    Scanner entrada = new Scanner(System.in);
+    int sexo; 
+    int tempoContribuicao; 
+    int idade;
+    int ano = 2019;
+    int pontosMinimos;
+    int pontosObtidos;
+
+    System.out.print("Insira o sexo (1 - feminino, 2 - masculino): ");
+    sexo = entrada.nextInt();
+    System.out.print("Insira o tempo de contribuição em 2019: ");
+    tempoContribuicao = entrada.nextInt();
+    System.out.print("Insira a idade em 2019: ");
+    idade = entrada.nextInt();
+
+    pontosMinimos = (sexo == 1) ? 86 : 96;
+    pontosObtidos = idade + tempoContribuicao;
+
+    while (pontosObtidos < pontosMinimos) {
+    System.out.println("Ano: " + ano + ", Pontuação Mínima: " + pontosMinimos + ", Pontuação Obtida: " + pontosObtidos);
+    ano++;
+    
+    if (sexo == 1) {
+      pontosMinimos++;
+    } else if (pontosMinimos < 105) {
+      pontosMinimos++;
+    }
+      pontosObtidos += 2;
+    }
+
+    System.out.println("Ano: " + ano + ", Pontuação Mínima: " + pontosMinimos + ", Pontuação Obtida: " + pontosObtidos);
+        
+    }
+}
+
